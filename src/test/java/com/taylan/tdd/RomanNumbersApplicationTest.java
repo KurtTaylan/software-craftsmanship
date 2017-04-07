@@ -17,7 +17,7 @@ public class RomanNumbersApplicationTest {
         RomanNumbersApplication converter = new RomanNumbersApplication();
         String romanNumberResult = converter.convertToRomanFrom(numberOne);
 
-        assertThat(romanNumberResult).isSameAs("I");
+        assertThat(romanNumberResult).isEqualTo("I");
 
     }
 
@@ -28,37 +28,47 @@ public class RomanNumbersApplicationTest {
         RomanNumbersApplication converter = new RomanNumbersApplication();
         String romanNumberResult = converter.convertToRomanFrom(numberTwo);
 
-        assertThat(romanNumberResult).isSameAs("II");
+        assertThat(romanNumberResult).isEqualTo("II");
     }
 
     @Test
-    public void should_number_three_converted_roman_numberic_III() throws Exception {
+    public void should_number_three_converted_roman_numeric_III() throws Exception {
         int numberThree = 3;
 
         RomanNumbersApplication converter = new RomanNumbersApplication();
         String romanNumberResult = converter.convertToRomanFrom(numberThree);
 
-        assertThat(romanNumberResult).isSameAs("III");
+        assertThat(romanNumberResult).isEqualTo("III");
     }
 
     @Test
-    public void should_number_five_converted_roman_numberic_V() throws Exception {
+    public void should_number_five_converted_roman_numeric_V() throws Exception {
         int numberFive = 5;
 
         RomanNumbersApplication converter = new RomanNumbersApplication();
         String romanNumberResult = converter.convertToRomanFrom(numberFive);
 
-        assertThat(romanNumberResult).isSameAs("V");
+        assertThat(romanNumberResult).isEqualTo("V");
 
     }
 
     @Test
-    public void should_number_ten_converted_roman_numberic_X() throws Exception {
+    public void should_number_ten_converted_roman_numeric_X() throws Exception {
         int numberTen = 10;
 
         RomanNumbersApplication converter = new RomanNumbersApplication();
         String romanNumberResult = converter.convertToRomanFrom(numberTen);
 
-        assertThat(romanNumberResult).isSameAs("X");
+        assertThat(romanNumberResult).isEqualTo("X");
+    }
+
+    @Test
+    public void should_number_six_converted_roman_numeric_VI() throws Exception {
+        int numberSix = 6;
+
+        RomanNumbersApplication converter = new RomanNumbersApplication();
+        String romanNumberResult = converter.convertToRomanFrom(numberSix);
+
+        assertThat(romanNumberResult).isEqualTo("VI");
     }
 }
