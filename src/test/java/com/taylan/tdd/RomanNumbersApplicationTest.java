@@ -6,10 +6,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class RomanNumbersApplicationTest {
 
-    @Test
-    public void testNothing() throws Exception {
-
-    }
 
     @Test
     public void should_number_one_converted_roman_numeric() {
@@ -22,6 +18,13 @@ public class RomanNumbersApplicationTest {
 
     }
 
+    @Test
+    public void should_number_two_converted_roman_numeric() throws Exception {
+        int numberTwo = 2;
+        RomanNumbersApplication converter = new RomanNumbersApplication();
 
+        String romanNumberResult = converter.convertToRomanFrom(numberTwo);
 
+        assertThat(romanNumberResult).isSameAs("II");
+    }
 }

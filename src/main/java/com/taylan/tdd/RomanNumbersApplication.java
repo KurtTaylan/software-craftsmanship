@@ -9,7 +9,9 @@ public class RomanNumbersApplication {
 
 
     public String convertToRomanFrom(int number) {
-
-        return "I";
+        if(number > 1)
+            return  "II";
+        else
+            return "I";
     }
 }
