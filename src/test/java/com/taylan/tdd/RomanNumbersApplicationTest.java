@@ -71,4 +71,14 @@ public class RomanNumbersApplicationTest {
 
         assertThat(romanNumberResult).isEqualTo("VI");
     }
+
+    @Test
+    public void should_number_four_converted_roman_numeric_IV() throws Exception {
+        int numberSix = 4;
+
+        RomanNumbersApplication converter = new RomanNumbersApplication();
+        String romanNumberResult = converter.convertToRomanFrom(numberSix);
+
+        assertThat(romanNumberResult).isEqualTo("IV");
+    }
 }
