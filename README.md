@@ -40,3 +40,6 @@ This Code kata is starting point of Apprenticeship program in order to achieve S
 
 
 # Notes:
+
+##### Apprenticeship - RomanNumbersConverter, First Try:Test Coverage
+![Test Coverage](https://github.com/KurtTaylan/software-craftsmanship/blob/1-st-time/Test_Coverage.png)
