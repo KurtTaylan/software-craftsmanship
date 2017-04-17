@@ -1,0 +1,46 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+
+group "com.taylan.craftsmanship"
+version "1.0-SNAPSHOT"
+
+
+ext.junit4Version        = '4.12'
+ext.junitVintageVersion  = '4.12.0-M4' // Experimental for Junit5
+ext.junitPlatformVersion = '1.0.0-M4' // Experimental for Junit5
+ext.junitJupiterVersion  = '5.0.0-M4' // Experimental for Junit5
+ext.log4jVersion         = '2.6.2' // Experimental for Junit5
+ext.assertjVersion       = '3.0.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = "com.taylan.tdd.RomenNumbersApplication"
+
+jar {
+    baseName = "apprenticeship-roman-numbers-tdd"
+    version = "1.0-SNAPSHOT"
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.21'
+
+    // Support: JUnit 4 tests
+    testCompile("junit:junit:${junit4Version}")
+    testCompile ("org.assertj:assertj-core:${assertjVersion}")
+}
+
+
+// Support: Cross-platform gradle build
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '3.0'
+}
