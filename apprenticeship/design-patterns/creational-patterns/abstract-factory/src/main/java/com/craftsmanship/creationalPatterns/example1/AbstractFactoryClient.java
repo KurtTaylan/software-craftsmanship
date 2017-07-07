@@ -4,7 +4,7 @@ import com.craftsmanship.creationalPatterns.example1.products.parent.CPU;
 import com.craftsmanship.creationalPatterns.example1.products.parent.MMU;
 import com.craftsmanship.creationalPatterns.example1.service.AbstractFactory;
 
-public class Client {
+public class AbstractFactoryClient {
 
     public static void main(String[] args) {
         AbstractFactory factory = AbstractFactory.getFactory(Architecture.EMBER);

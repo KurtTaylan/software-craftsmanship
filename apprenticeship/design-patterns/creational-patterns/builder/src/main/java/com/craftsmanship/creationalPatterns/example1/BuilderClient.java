@@ -3,10 +3,10 @@ package com.craftsmanship.creationalPatterns.example1;
 import javax.swing.*;
 import java.awt.*;
 
-public class Client {
+public class BuilderClient {
 
     public static void main(String[] args) {
-        (new Client()).demo(args);
+        (new BuilderClient()).demo(args);
     }
 
 
