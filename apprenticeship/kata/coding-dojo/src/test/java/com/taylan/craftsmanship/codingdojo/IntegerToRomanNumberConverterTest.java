@@ -22,10 +22,9 @@ public class IntegerToRomanNumberConverterTest {
     }
 
     @Test
-    public void convert_5_10_50() throws Exception {
+    public void convert_5_10() throws Exception {
         assertThat(converter.convert(5)).isEqualTo("V");
         assertThat(converter.convert(10)).isEqualTo("X");
-        assertThat(converter.convert(50)).isEqualTo("L");
     }
 
     @Test
