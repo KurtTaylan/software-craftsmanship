@@ -7,6 +7,8 @@ import java.util.Map;
 public class IntegerToRomanNumberConverter {
 
     Map<Integer, String> mapping = new LinkedHashMap<Integer, String>() {{
+        put(100, "C");
+        put(50, "L");
         put(10, "X");
         put(5, "V");
         put(1, "I");
@@ -17,6 +19,12 @@ public class IntegerToRomanNumberConverter {
 
         if (mapping.containsKey(input)) {
             return mapping.get(input);
+        }
+
+        if (input == 40 || input == 90) {
+            builder.append("X");
+            builder.append(mapping.get(input + 10));
+            return builder.toString();
         }
 
         if (input == 4 || input == 9) {

@@ -46,4 +46,11 @@ public class IntegerToRomanNumberConverterTest {
         assertThat(converter.convert(12)).isEqualTo("XII");
         assertThat(converter.convert(13)).isEqualTo("XIII");
     }
+
+
+    @Test
+    public void convert_40_90() throws Exception {
+        assertThat(converter.convert(40)).isEqualTo("XL");
+        assertThat(converter.convert(90)).isEqualTo("XC");
+    }
 }
