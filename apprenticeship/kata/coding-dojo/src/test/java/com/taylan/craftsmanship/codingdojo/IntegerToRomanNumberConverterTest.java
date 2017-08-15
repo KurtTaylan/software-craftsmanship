@@ -53,4 +53,10 @@ public class IntegerToRomanNumberConverterTest {
         assertThat(converter.convert(40)).isEqualTo("XL");
         assertThat(converter.convert(90)).isEqualTo("XC");
     }
+
+    @Test
+    public void convert_400_900() throws Exception {
+        assertThat(converter.convert(400)).isEqualTo("CD");
+        assertThat(converter.convert(900)).isEqualTo("CM");
+    }
 }

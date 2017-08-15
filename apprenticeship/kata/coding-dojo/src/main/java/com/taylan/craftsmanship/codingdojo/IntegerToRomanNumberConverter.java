@@ -1,12 +1,13 @@
 package com.taylan.craftsmanship.codingdojo;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class IntegerToRomanNumberConverter {
 
     Map<Integer, String> mapping = new LinkedHashMap<Integer, String>() {{
+        put(1000, "M");
+        put(500, "D");
         put(100, "C");
         put(50, "L");
         put(10, "X");
@@ -19,6 +20,12 @@ public class IntegerToRomanNumberConverter {
 
         if (mapping.containsKey(input)) {
             return mapping.get(input);
+        }
+
+        if (input == 400 || input == 900) {
+            builder.append("C");
+            builder.append(mapping.get(input + 100));
+            return builder.toString();
         }
 
         if (input == 40 || input == 90) {
