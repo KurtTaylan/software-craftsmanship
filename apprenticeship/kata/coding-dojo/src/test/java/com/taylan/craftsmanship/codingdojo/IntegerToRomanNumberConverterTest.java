@@ -29,12 +29,8 @@ public class IntegerToRomanNumberConverterTest {
     }
 
     @Test
-    public void convert_4() throws Exception {
+    public void convert_4_9() throws Exception {
         assertThat(converter.convert(4)).isEqualTo("IV");
-    }
-
-    @Test
-    public void convert_9() throws Exception {
         assertThat(converter.convert(9)).isEqualTo("IX");
     }
 

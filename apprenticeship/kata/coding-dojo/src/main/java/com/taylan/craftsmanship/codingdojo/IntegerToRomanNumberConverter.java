@@ -22,7 +22,6 @@ public class IntegerToRomanNumberConverter {
         else if (i == 13)
             return "XIII";
 
-
         if (i == 4 || i == 9) {
             builder.append("I");
             builder.append(mapping.get(i + 1));
