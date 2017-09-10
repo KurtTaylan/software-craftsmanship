@@ -1,4 +1,4 @@
-package com.craftsmanship.creationalPatterns;
+package com.craftsmanship.structuralPatterns;
 
 /* The OLD */
 public class SquarePeg {

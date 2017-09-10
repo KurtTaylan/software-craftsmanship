@@ -1,4 +1,4 @@
-package com.craftsmanship.creationalPatterns;
+package com.craftsmanship.structuralPatterns;
 
 // Design a "wrapper" class that can "impedance match" the old to the new
 public class SquarePegAdapter {
