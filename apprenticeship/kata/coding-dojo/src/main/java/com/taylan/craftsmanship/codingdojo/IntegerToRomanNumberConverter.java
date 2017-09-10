@@ -1,5 +1,6 @@
 package com.taylan.craftsmanship.codingdojo;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -15,41 +16,45 @@ public class IntegerToRomanNumberConverter {
         put(1, "I");
     }};
 
-    public String convert(int input) {
-        StringBuilder builder = new StringBuilder();
+    Map<Integer, Integer> chipper = new HashMap<Integer, Integer>() {{
+        put(1000, 100);
+        put(500, 100);
+        put(100, 10);
+        put(50, 10);
+        put(10, 1);
+        put(5, 1);
+        put(1, 1);
+    }};
 
+
+    public String convert(int input) {
         if (mapping.containsKey(input)) {
             return mapping.get(input);
         }
 
-        if (input == 400 || input == 900) {
-            builder.append("C");
-            builder.append(mapping.get(input + 100));
-            return builder.toString();
-        }
-
-        if (input == 40 || input == 90) {
-            builder.append("X");
-            builder.append(mapping.get(input + 10));
-            return builder.toString();
-        }
-
-        if (input == 4 || input == 9) {
-            builder.append("I");
-            builder.append(mapping.get(input + 1));
-            return builder.toString();
-        }
-
         for (Integer key : mapping.keySet()) {
-            if (input > key) {
-                builder.append(mapping.get(key));
-                for (int i = 0; i < input - key; i++) {
-                    builder.append("I");
-                }
-                return builder.toString();
+            if (key - chipper.get(key) == input) {
+                return appendPrefix(input, chipper.get(key));
+            } else if (input > key) {
+                return appendSuffix(input, key);
             }
         }
+        throw new IllegalArgumentException("Example is not valid");
+    }
 
+    private String appendSuffix(int input, Integer key) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(mapping.get(key));
+        for (int i = 0; i < input - key; i++) {
+            builder.append("I");
+        }
+        return builder.toString();
+    }
+
+    private String appendPrefix(int input, int i) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(mapping.get(chipper.get(input + i))); // prefix
+        builder.append(mapping.get(input + i)); // Main
         return builder.toString();
     }
 }
