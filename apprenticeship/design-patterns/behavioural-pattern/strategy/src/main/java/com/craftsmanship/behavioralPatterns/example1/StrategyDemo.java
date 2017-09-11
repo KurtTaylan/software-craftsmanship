@@ -15,7 +15,7 @@ public class StrategyDemo {
     }
 
     public static void main(String[] args) {
-        Strategy[] algorithms = {new FOO(), new BAR()};
+        Strategy[] algorithms = {new com.craftsmanship.behavioralPatterns.example.FOO(), new com.craftsmanship.behavioralPatterns.example.BAR()};
         for (Strategy algorithm : algorithms) {
             execute(algorithm);
         }
