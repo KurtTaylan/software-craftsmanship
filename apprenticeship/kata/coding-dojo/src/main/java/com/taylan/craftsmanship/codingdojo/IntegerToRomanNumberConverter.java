@@ -1,4 +1,4 @@
-package com.taylan.craftsmanship.codingdojo;
+package com.taylan.craftsmanship.bowlinggame;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
