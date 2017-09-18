@@ -1,5 +1,6 @@
 package com.taylan.craftsmanship.bowlinggame;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,13 @@ public class Frame {
 
     public void doRolling(int numberOfKnockedDownPins) {
         if (rolls.size() >= 2) throw new NotAllowedToRollException();
-        rolls.add(new Roll(numberOfKnockedDownPins));
+
+        if (getPoints() + numberOfKnockedDownPins == 10) {
+            rolls.add(new Roll(numberOfKnockedDownPins, "/"));
+        } else {
+            rolls.add(new Roll(numberOfKnockedDownPins, String.valueOf(numberOfKnockedDownPins)));
+        }
+
     }
 
     public int getPoints() {

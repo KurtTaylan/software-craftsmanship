@@ -3,6 +3,7 @@ package com.taylan.craftsmanship.bowlinggame;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -40,8 +41,8 @@ class FrameTest {
         frame.doRolling(3);
         frame.doRolling(5);
 
-        assertThrows(NotAllowedToRollException.class, ()->
-            frame.doRolling(2)
+        assertThrows(NotAllowedToRollException.class, () ->
+                frame.doRolling(2)
         );
     }
 
@@ -53,5 +54,18 @@ class FrameTest {
 
         assertEquals(2, frame.getRoll(1).getPoints());
     }
+
+    @Test
+    public void should_return_spare_sign_when_frame_is_spare() {
+        Frame frame = new Frame();
+        frame.doRolling(2);
+        frame.doRolling(8);
+
+        assertAll("displayNames", () -> {
+            assertEquals("2", frame.getRoll(1).getDisplayName());
+            assertEquals("/", frame.getRoll(2).getDisplayName());
+        });
+    }
+
 
 }

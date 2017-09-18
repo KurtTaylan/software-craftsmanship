@@ -46,7 +46,7 @@ public class GameTest {
     }
 
     @Test
-    public void should_calculate_spare_score() {
+    public void should_calculate_spare_score_for_single_frame() {
         Game game = new Game();
         Frame frame1 = new Frame();
         frame1.doRolling(3);
