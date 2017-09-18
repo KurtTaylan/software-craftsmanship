@@ -11,7 +11,8 @@ public class Game {
         frames.add(frame);
     }
 
-    public int calculateScore() {
-        return frames.stream().mapToInt(Frame::calculatePoints).sum();
+    public Score calculateScore() {
+        Integer score = frames.stream().mapToInt(Frame::calculatePoints).sum();
+        return new Score(score);
     }
 }

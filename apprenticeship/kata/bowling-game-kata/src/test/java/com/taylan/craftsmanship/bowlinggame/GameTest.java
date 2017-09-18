@@ -14,7 +14,7 @@ public class GameTest {
         frame.doRolling(3);
         game.addFrame(frame);
 
-        assertEquals(3, game.calculateScore());
+        assertEquals(new Score(3), game.calculateScore());
     }
 
     @Test
@@ -25,7 +25,7 @@ public class GameTest {
         frame.doRolling(5);
         game.addFrame(frame);
 
-        assertEquals(8, game.calculateScore());
+        assertEquals(new Score(8), game.calculateScore());
     }
 
     @Test
@@ -42,6 +42,18 @@ public class GameTest {
         game.addFrame(frame1);
         game.addFrame(frame2);
 
-        assertEquals(18, game.calculateScore());
+        assertEquals(new Score(18), game.calculateScore());
+    }
+
+    @Test
+    public void should_calculate_spare_score() {
+        Game game = new Game();
+        Frame frame1 = new Frame();
+        frame1.doRolling(3);
+        frame1.doRolling(7);
+
+        game.addFrame(frame1);
+
+        assertEquals("", game.calculateScore().getValue());
     }
 }
