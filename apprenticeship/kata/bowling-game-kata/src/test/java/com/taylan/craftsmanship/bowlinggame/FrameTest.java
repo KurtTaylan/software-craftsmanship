@@ -45,4 +45,13 @@ class FrameTest {
         );
     }
 
+    @Test
+    public void should_return_first_roll_of_frame() {
+        Frame frame = new Frame();
+        frame.doRolling(2);
+        frame.doRolling(4);
+
+        assertEquals(2, frame.getRoll(1).getPoints());
+    }
+
 }
