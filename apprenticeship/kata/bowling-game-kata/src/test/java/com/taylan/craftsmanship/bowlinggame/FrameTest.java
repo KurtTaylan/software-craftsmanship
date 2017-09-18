@@ -32,4 +32,5 @@ class FrameTest {
 
         assertEquals(8, frame.getPoints());
     }
+
 }
