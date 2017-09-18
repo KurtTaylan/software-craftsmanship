@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FrameTest {
 
@@ -31,6 +32,17 @@ class FrameTest {
         frame.doRolling(5);
 
         assertEquals(8, frame.getPoints());
+    }
+
+    @Test
+    public void should_roll_third_time_on_same_frame() {
+        Frame frame = new Frame();
+        frame.doRolling(3);
+        frame.doRolling(5);
+
+        assertThrows(NotAllowedToRollException.class, ()->
+            frame.doRolling(2)
+        );
     }
 
 }
