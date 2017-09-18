@@ -14,7 +14,7 @@ class FrameTest {
         Frame frame = new Frame();
         frame.doRolling(3);
 
-        assertEquals(3, frame.getPoints());
+        assertEquals(3, frame.calculatePoints());
     }
 
     @Test
@@ -22,7 +22,7 @@ class FrameTest {
         Frame frame = new Frame();
         frame.doRolling(5);
 
-        assertEquals(5, frame.getPoints());
+        assertEquals(5, frame.calculatePoints());
     }
 
     @Test
@@ -31,7 +31,7 @@ class FrameTest {
         frame.doRolling(3);
         frame.doRolling(5);
 
-        assertEquals(8, frame.getPoints());
+        assertEquals(8, frame.calculatePoints());
     }
 
     @Test

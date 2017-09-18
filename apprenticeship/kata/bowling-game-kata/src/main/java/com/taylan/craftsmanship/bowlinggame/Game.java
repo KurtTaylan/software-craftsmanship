@@ -1,14 +1,17 @@
 package com.taylan.craftsmanship.bowlinggame;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
 
-    private Frame frame;
+    private List<Frame> frames = new ArrayList<>(10);
 
     public void addFrame(Frame frame) {
-        this.frame = frame;
+        frames.add(frame);
     }
 
-    public int getScore() {
-        return frame.getPoints();
+    public int calculateScore() {
+        return frames.stream().mapToInt(Frame::calculatePoints).sum();
     }
 }

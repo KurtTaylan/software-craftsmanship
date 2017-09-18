@@ -11,7 +11,7 @@ public class Frame {
         points += numberOfKnockedDownPins;
     }
 
-    public int getPoints() {
+    public int calculatePoints() {
         return points;
     }
 }
