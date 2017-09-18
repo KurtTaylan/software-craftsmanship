@@ -12,7 +12,11 @@ public class Game {
     }
 
     public Score calculateScore() {
-        Integer score = frames.stream().mapToInt(Frame::calculatePoints).sum();
+        Integer score = frames.stream().mapToInt(Frame::getPoints).sum();
         return new Score(score);
+    }
+
+    public Frame getFrame(int frameIndex) {
+        return frames.get(frameIndex-1);
     }
 }

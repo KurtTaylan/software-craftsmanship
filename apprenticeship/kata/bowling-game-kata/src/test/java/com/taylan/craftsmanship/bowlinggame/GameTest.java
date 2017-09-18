@@ -56,4 +56,20 @@ public class GameTest {
 
         assertEquals("", game.calculateScore().getValue());
     }
+
+    @Test
+    public void should_show_first_frame_score() {
+        Game game = new Game();
+        Frame frame1 = new Frame();
+        Frame frame2 = new Frame();
+        frame1.doRolling(3);
+        frame1.doRolling(5);
+        frame2.doRolling(2);
+        frame2.doRolling(4);
+
+        game.addFrame(frame1);
+        game.addFrame(frame2);
+
+        assertEquals(8, game.getFrame(1).getPoints());
+    }
 }
