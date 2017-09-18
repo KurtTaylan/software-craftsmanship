@@ -5,7 +5,7 @@ public class Frame {
     private int points;
 
     public void doRolling(int numberOfKnockedDownPins) {
-        points = numberOfKnockedDownPins;
+        points += numberOfKnockedDownPins;
     }
 
     public int getPoints() {
