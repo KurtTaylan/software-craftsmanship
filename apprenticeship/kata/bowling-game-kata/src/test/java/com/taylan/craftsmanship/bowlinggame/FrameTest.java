@@ -9,10 +9,19 @@ class FrameTest {
 
     @Test
     @DisplayName("First fail test")
-    void testNothing() {
+    void should_roll_once() {
         Frame frame = new Frame();
         frame.doRolling(3);
 
         assertEquals(3, frame.getPoints());
+    }
+
+    @Test
+    public void should_roll_twice() {
+        Frame frame = new Frame();
+        frame.doRolling(5);
+
+        assertEquals(5, frame.getPoints());
+
     }
 }
