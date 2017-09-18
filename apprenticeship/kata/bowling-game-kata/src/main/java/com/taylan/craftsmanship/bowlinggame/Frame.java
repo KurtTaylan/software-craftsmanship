@@ -10,13 +10,22 @@ public class Frame {
 
     public void doRolling(int numberOfKnockedDownPins) {
         if (rolls.size() >= 2) throw new NotAllowedToRollException();
+        String displayName = createDisplayName(numberOfKnockedDownPins);
+        rolls.add(new Roll(numberOfKnockedDownPins, displayName));
+    }
 
+    private String createDisplayName(int numberOfKnockedDownPins) {
+        String displayName;
         if (getPoints() + numberOfKnockedDownPins == 10) {
-            rolls.add(new Roll(numberOfKnockedDownPins, "/"));
+            if (rolls.isEmpty()) {
+                displayName = "X";
+            } else {
+                displayName = "/";
+            }
         } else {
-            rolls.add(new Roll(numberOfKnockedDownPins, String.valueOf(numberOfKnockedDownPins)));
+            displayName = String.valueOf(numberOfKnockedDownPins);
         }
-
+        return displayName;
     }
 
     public int getPoints() {

@@ -3,9 +3,7 @@ package com.taylan.craftsmanship.bowlinggame;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class FrameTest {
 
@@ -67,5 +65,11 @@ class FrameTest {
         });
     }
 
+    @Test
+    void should_return_strike_sign_when_frame_is_strike() {
+        Frame frame = new Frame();
+        frame.doRolling(10);
 
+        assertEquals("X", frame.getRoll(1).getDisplayName());
+    }
 }
