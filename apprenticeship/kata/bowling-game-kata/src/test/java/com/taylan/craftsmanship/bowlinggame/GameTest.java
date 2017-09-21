@@ -111,4 +111,33 @@ public class GameTest {
         assertEquals("16", game.calculateFrameScore(1).getValue());
         assertEquals("6", game.calculateFrameScore(2).getValue());
     }
+
+    @Test
+    void should_calculate_points_for_double_strike() {
+        Game game = new Game();
+
+        Frame frame1 = new Frame();
+        frame1.doRolling(10, 10);
+        game.addFrame(frame1);
+
+        assertEquals("", game.calculateFrameScore(1).getValue());
+
+        Frame frame2 = new Frame();
+        frame2.doRolling(10, 10);
+
+        game.addFrame(frame2);
+
+        assertEquals("", game.calculateFrameScore(2).getValue());
+
+        Frame frame3 = new Frame();
+        frame3.doRolling(2, 10);
+        frame3.doRolling(6, 8);
+
+        game.addFrame(frame3);
+
+
+        assertEquals("22", game.calculateFrameScore(1).getValue());
+        assertEquals("18", game.calculateFrameScore(2).getValue());
+        assertEquals("8", game.calculateFrameScore(3).getValue());
+    }
 }

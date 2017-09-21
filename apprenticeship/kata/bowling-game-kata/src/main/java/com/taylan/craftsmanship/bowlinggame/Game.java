@@ -18,8 +18,13 @@ public class Game {
             if (frame.isSpare()) {
                 framePoints += frames.get(frameNumber).getRoll(1).getPoints();
             } else if (frame.isStrike()) {
-                framePoints += frames.get(frameNumber).getRoll(1).getPoints();
-                framePoints += frames.get(frameNumber).getRoll(2).getPoints();
+                if (frames.get(frameNumber).isStrike() && frames.size() > frameNumber + 1) {
+                    framePoints += frames.get(frameNumber).getRoll(1).getPoints();
+                    framePoints += frames.get(frameNumber + 1).getRoll(1).getPoints();
+                } else {
+                    framePoints += frames.get(frameNumber).getRoll(1).getPoints();
+                    framePoints += frames.get(frameNumber).getRoll(2).getPoints();
+                }
             }
         }
         return new Score(framePoints);
