@@ -24,4 +24,8 @@ public class Frame {
     public boolean isSpare() {
         return rolls.size() == 2 && getPoints() == 10;
     }
+
+    public boolean isStrike() {
+        return rolls.size() == 1 && getPoints() == 10;
+    }
 }

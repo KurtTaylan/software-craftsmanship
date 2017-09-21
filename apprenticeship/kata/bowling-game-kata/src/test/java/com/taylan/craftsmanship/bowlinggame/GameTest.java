@@ -92,4 +92,23 @@ public class GameTest {
         assertEquals("14", game.calculateFrameScore(1).getValue());
         assertEquals("6", game.calculateFrameScore(2).getValue());
     }
+
+    @Test
+    void should_calculate_points_for_strike() {
+        Game game = new Game();
+
+        Frame frame1 = new Frame();
+        frame1.doRolling(10, 10);
+        game.addFrame(frame1);
+
+        assertEquals("", game.calculateFrameScore(1).getValue());
+
+        Frame frame2 = new Frame();
+        frame2.doRolling(4, 10);
+        frame2.doRolling(2, 6);
+        game.addFrame(frame2);
+
+        assertEquals("16", game.calculateFrameScore(1).getValue());
+        assertEquals("6", game.calculateFrameScore(2).getValue());
+    }
 }
