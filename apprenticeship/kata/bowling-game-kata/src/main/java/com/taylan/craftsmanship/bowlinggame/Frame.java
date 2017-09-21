@@ -8,24 +8,9 @@ public class Frame {
 
     private List<Roll> rolls = new ArrayList<>();
 
-    public void doRolling(int numberOfKnockedDownPins) {
+    public void doRolling(int numberOfKnockedDownPins, int previousPins) {
         if (rolls.size() >= 2) throw new NotAllowedToRollException();
-        String displayName = createDisplayName(numberOfKnockedDownPins);
-        rolls.add(new Roll(numberOfKnockedDownPins, displayName));
-    }
-
-    private String createDisplayName(int numberOfKnockedDownPins) {
-        String displayName;
-        if (getPoints() + numberOfKnockedDownPins == 10) {
-            if (rolls.isEmpty()) {
-                displayName = "X";
-            } else {
-                displayName = "/";
-            }
-        } else {
-            displayName = String.valueOf(numberOfKnockedDownPins);
-        }
-        return displayName;
+        rolls.add(new Roll(numberOfKnockedDownPins, previousPins));
     }
 
     public int getPoints() {

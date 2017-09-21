@@ -11,7 +11,7 @@ public class GameTest {
     public void should_roll_once() {
         Game game = new Game();
         Frame frame = new Frame();
-        frame.doRolling(3);
+        frame.doRolling(3, 10);
         game.addFrame(frame);
 
         assertEquals(new Score(3), game.calculateScore());
@@ -21,8 +21,8 @@ public class GameTest {
     public void should_roll_twice() {
         Game game = new Game();
         Frame frame = new Frame();
-        frame.doRolling(3);
-        frame.doRolling(5);
+        frame.doRolling(3, 10);
+        frame.doRolling(5, 10);
         game.addFrame(frame);
 
         assertEquals(new Score(8), game.calculateScore());
@@ -34,10 +34,10 @@ public class GameTest {
         Game game = new Game();
         Frame frame1 = new Frame();
         Frame frame2 = new Frame();
-        frame2.doRolling(3);
-        frame2.doRolling(6);
-        frame1.doRolling(3);
-        frame1.doRolling(6);
+        frame2.doRolling(3, 10);
+        frame2.doRolling(6, 10);
+        frame1.doRolling(3, 10);
+        frame1.doRolling(6, 10);
 
         game.addFrame(frame1);
         game.addFrame(frame2);
@@ -49,8 +49,8 @@ public class GameTest {
     public void should_calculate_spare_score_for_single_frame() {
         Game game = new Game();
         Frame frame1 = new Frame();
-        frame1.doRolling(3);
-        frame1.doRolling(7);
+        frame1.doRolling(3, 10);
+        frame1.doRolling(7, 10);
 
         game.addFrame(frame1);
 
@@ -62,10 +62,10 @@ public class GameTest {
         Game game = new Game();
         Frame frame1 = new Frame();
         Frame frame2 = new Frame();
-        frame1.doRolling(3);
-        frame1.doRolling(5);
-        frame2.doRolling(2);
-        frame2.doRolling(4);
+        frame1.doRolling(3, 10);
+        frame1.doRolling(5, 10);
+        frame2.doRolling(2, 10);
+        frame2.doRolling(4, 10);
 
         game.addFrame(frame1);
         game.addFrame(frame2);

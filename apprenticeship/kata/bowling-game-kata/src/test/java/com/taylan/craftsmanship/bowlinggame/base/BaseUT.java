@@ -7,5 +7,5 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitPlatform.class)
 @ExtendWith(MockitoExtension.class)
-public class BaseUT {
+public abstract class BaseUT {
 }

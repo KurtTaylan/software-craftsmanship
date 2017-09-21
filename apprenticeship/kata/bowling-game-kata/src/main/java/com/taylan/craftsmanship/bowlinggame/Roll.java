@@ -3,11 +3,11 @@ package com.taylan.craftsmanship.bowlinggame;
 public class Roll {
 
     private int points;
-    private String displayName;
+    private int previousPins;
 
-    public Roll(int points, String displayName) {
+    public Roll(int points, int previousPins) {
         this.points = points;
-        this.displayName = displayName;
+        this.previousPins = previousPins;
     }
 
     public int getPoints() {
@@ -15,7 +15,13 @@ public class Roll {
     }
 
     public String getDisplayName() {
-        return displayName;
+        if (previousPins == 10 && points == 10) {
+            return "X";
+        }
+        if (previousPins == points) {
+            return "/";
+        }
+        return String.valueOf(points);
     }
 
 }

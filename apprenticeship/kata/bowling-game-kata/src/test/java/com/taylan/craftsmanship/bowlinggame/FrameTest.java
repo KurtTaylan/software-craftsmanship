@@ -11,7 +11,7 @@ class FrameTest {
     @DisplayName("First fail test")
     void should_knock_down_3_pins() {
         Frame frame = new Frame();
-        frame.doRolling(3);
+        frame.doRolling(3, 10);
 
         assertEquals(3, frame.getPoints());
     }
@@ -19,7 +19,7 @@ class FrameTest {
     @Test
     public void should_knock_down_5_pins() {
         Frame frame = new Frame();
-        frame.doRolling(5);
+        frame.doRolling(5, 10);
 
         assertEquals(5, frame.getPoints());
     }
@@ -27,8 +27,8 @@ class FrameTest {
     @Test
     public void should_roll_twice() {
         Frame frame = new Frame();
-        frame.doRolling(3);
-        frame.doRolling(5);
+        frame.doRolling(3, 10);
+        frame.doRolling(5, 7);
 
         assertEquals(8, frame.getPoints());
     }
@@ -36,40 +36,20 @@ class FrameTest {
     @Test
     public void should_roll_third_time_on_same_frame() {
         Frame frame = new Frame();
-        frame.doRolling(3);
-        frame.doRolling(5);
+        frame.doRolling(3, 10);
+        frame.doRolling(5, 7);
 
         assertThrows(NotAllowedToRollException.class, () ->
-                frame.doRolling(2)
+                frame.doRolling(2, 10)
         );
     }
 
     @Test
     public void should_return_first_roll_of_frame() {
         Frame frame = new Frame();
-        frame.doRolling(2);
-        frame.doRolling(4);
+        frame.doRolling(2, 10);
+        frame.doRolling(4, 8);
 
         assertEquals(2, frame.getRoll(1).getPoints());
-    }
-
-    @Test
-    public void should_return_spare_sign_when_frame_is_spare() {
-        Frame frame = new Frame();
-        frame.doRolling(2);
-        frame.doRolling(8);
-
-        assertAll("displayNames", () -> {
-            assertEquals("2", frame.getRoll(1).getDisplayName());
-            assertEquals("/", frame.getRoll(2).getDisplayName());
-        });
-    }
-
-    @Test
-    void should_return_strike_sign_when_frame_is_strike() {
-        Frame frame = new Frame();
-        frame.doRolling(10);
-
-        assertEquals("X", frame.getRoll(1).getDisplayName());
     }
 }
