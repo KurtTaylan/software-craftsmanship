@@ -14,7 +14,7 @@ public class GameTest {
         frame.doRolling(3, 10);
         game.addFrame(frame);
 
-        assertEquals(new Score(3), game.calculateScore());
+        assertEquals(new Score(3), game.calculateFrameScore(1));
     }
 
     @Test
@@ -22,10 +22,10 @@ public class GameTest {
         Game game = new Game();
         Frame frame = new Frame();
         frame.doRolling(3, 10);
-        frame.doRolling(5, 10);
+        frame.doRolling(5, 7);
         game.addFrame(frame);
 
-        assertEquals(new Score(8), game.calculateScore());
+        assertEquals(new Score(8), game.calculateFrameScore(1));
     }
 
     @Test
@@ -35,14 +35,15 @@ public class GameTest {
         Frame frame1 = new Frame();
         Frame frame2 = new Frame();
         frame2.doRolling(3, 10);
-        frame2.doRolling(6, 10);
+        frame2.doRolling(6, 7);
         frame1.doRolling(3, 10);
-        frame1.doRolling(6, 10);
+        frame1.doRolling(6, 7);
 
         game.addFrame(frame1);
         game.addFrame(frame2);
 
-        assertEquals(new Score(18), game.calculateScore());
+        assertEquals(new Score(9), game.calculateFrameScore(1));
+        assertEquals(new Score(9), game.calculateFrameScore(2));
     }
 
     @Test
@@ -50,11 +51,10 @@ public class GameTest {
         Game game = new Game();
         Frame frame1 = new Frame();
         frame1.doRolling(3, 10);
-        frame1.doRolling(7, 10);
-
+        frame1.doRolling(7, 7);
         game.addFrame(frame1);
 
-        assertEquals("", game.calculateScore().getValue());
+        assertEquals("", game.calculateFrameScore(1).getValue());
     }
 
     @Test
@@ -63,13 +63,33 @@ public class GameTest {
         Frame frame1 = new Frame();
         Frame frame2 = new Frame();
         frame1.doRolling(3, 10);
-        frame1.doRolling(5, 10);
+        frame1.doRolling(5, 7);
         frame2.doRolling(2, 10);
-        frame2.doRolling(4, 10);
+        frame2.doRolling(4, 8);
 
         game.addFrame(frame1);
         game.addFrame(frame2);
 
         assertEquals(8, game.getFrame(1).getPoints());
+    }
+
+    @Test
+    void should_calculate_points_for_spare() {
+        Game game = new Game();
+
+        Frame frame1 = new Frame();
+        frame1.doRolling(2, 10);
+        frame1.doRolling(8, 8);
+        game.addFrame(frame1);
+
+        assertEquals("", game.calculateFrameScore(1).getValue());
+
+        Frame frame2 = new Frame();
+        frame2.doRolling(4, 10);
+        frame2.doRolling(2, 6);
+        game.addFrame(frame2);
+
+        assertEquals("14", game.calculateFrameScore(1).getValue());
+        assertEquals("6", game.calculateFrameScore(2).getValue());
     }
 }

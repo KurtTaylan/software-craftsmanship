@@ -20,4 +20,8 @@ public class Frame {
     public Roll getRoll(int index) {
         return rolls.get(index - 1);
     }
+
+    public boolean isSpare() {
+        return rolls.size() == 2 && getPoints() == 10;
+    }
 }

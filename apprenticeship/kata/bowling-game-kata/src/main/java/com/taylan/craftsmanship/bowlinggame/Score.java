@@ -21,11 +21,19 @@ public class Score {
 
         Score score = (Score) o;
 
-        return value != null ? value.equals(score.value) : score.value == null;
+        return value.equals(score.value);
     }
 
     @Override
     public int hashCode() {
-        return value != null ? value.hashCode() : 0;
+        return value.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Score{");
+        sb.append("value=").append(value);
+        sb.append('}');
+        return sb.toString();
     }
 }

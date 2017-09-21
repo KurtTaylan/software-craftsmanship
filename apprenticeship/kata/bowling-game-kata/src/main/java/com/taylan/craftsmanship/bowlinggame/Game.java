@@ -11,9 +11,13 @@ public class Game {
         frames.add(frame);
     }
 
-    public Score calculateScore() {
-        Integer score = frames.stream().mapToInt(Frame::getPoints).sum();
-        return new Score(score);
+    public Score calculateFrameScore(int frameNumber) {
+        Frame frame = frames.get(frameNumber-1);
+        int framePoints = frame.getPoints();
+        if (frames.size() > frameNumber && frame.isSpare()) {
+            framePoints += frames.get(frameNumber).getRoll(1).getPoints();
+        }
+        return new Score(framePoints);
     }
 
     public Frame getFrame(int frameIndex) {

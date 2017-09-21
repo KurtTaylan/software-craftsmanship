@@ -34,7 +34,7 @@ class FrameTest {
     }
 
     @Test
-    public void should_roll_third_time_on_same_frame() {
+    public void should_not_roll_third_time_on_same_frame() {
         Frame frame = new Frame();
         frame.doRolling(3, 10);
         frame.doRolling(5, 7);
@@ -52,4 +52,5 @@ class FrameTest {
 
         assertEquals(2, frame.getRoll(1).getPoints());
     }
+
 }
