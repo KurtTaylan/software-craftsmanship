@@ -1,6 +1,5 @@
 package com.taylan.craftsmanship.bowlinggame;
 
-import com.taylan.craftsmanship.bowlinggame.base.BaseUT;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,5 +19,10 @@ class RollTest {
     @Test
     void should_return_strike_sign() {
         assertEquals("X", new Roll(10, 10).getDisplayName());
+    }
+
+    @Test
+    void should_return_missed_sign() {
+        assertEquals("-", new Roll(0, 10).getDisplayName());
     }
 }

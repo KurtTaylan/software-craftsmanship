@@ -15,12 +15,16 @@ public class Roll {
     }
 
     public String getDisplayName() {
+        if (points == 0){
+            return "-";
+        }
         if (previousPins == 10 && points == 10) {
             return "X";
         }
         if (previousPins == points) {
             return "/";
         }
+
         return String.valueOf(points);
     }
 
