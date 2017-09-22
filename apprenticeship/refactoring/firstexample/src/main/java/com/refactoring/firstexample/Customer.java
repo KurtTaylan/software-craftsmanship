@@ -20,28 +20,15 @@ public class Customer {
         return _name;
     }
 
-    public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
-        Enumeration rentals = _rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
-        while (rentals.hasMoreElements()) {
-            double thisAmount = 0;
-            Rental each = (Rental) rentals.nextElement();
-
-            //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
-            totalAmount += each.getCharge();
-        }
-
-        //add footer lines
-        result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
-        result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + "frequent renter points";
-
-        return result;
+    public String statement(Customer customer) {
+        return new TextStatement().value(this);
     }
 
-    private int getTotalFrequentRenterPoints() {
+    public String htmlStatement(Customer customer) {
+        return new HtmlStatement().value(this);
+    }
+
+    public int getTotalFrequentRenterPoints() {
         int result = 0;
         Enumeration rentals = _rentals.elements();
         while (rentals.hasMoreElements()) {
@@ -53,7 +40,7 @@ public class Customer {
         return result;
     }
 
-    private double getTotalCharge() {
+    public double getTotalCharge() {
         double result = 0;
         Enumeration rentals = _rentals.elements();
         while (rentals.hasMoreElements()) {
@@ -65,25 +52,7 @@ public class Customer {
         return result;
     }
 
-
-    public String htmlStatement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
-        Enumeration rentals = _rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
-        while (rentals.hasMoreElements()) {
-            double thisAmount = 0;
-            Rental each = (Rental) rentals.nextElement();
-
-            //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
-            totalAmount += each.getCharge();
-        }
-
-        //add footer lines
-        result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
-        result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + "frequent renter points";
-
-        return result;
+    public Vector getRentals() {
+        return _rentals;
     }
 }
