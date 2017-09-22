@@ -34,7 +34,7 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
-            result += each.getFrequentRenterPoints();
+            result += each._movie._price.getFrequentRenterPoints(each.getDaysRented(), each._movie);
         }
 
         return result;
@@ -46,7 +46,7 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
-            result += each.getCharge();
+            result += each._movie._price.getCharge(each.getDaysRented(), each._movie);
         }
 
         return result;

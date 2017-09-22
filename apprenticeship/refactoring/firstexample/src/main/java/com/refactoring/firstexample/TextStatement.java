@@ -10,7 +10,7 @@ public class TextStatement extends Statement {
 
     @Override
     protected String eachRentalString(Rental each) {
-        return "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
+        return "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each._movie._price.getCharge(each, each._movie)) + "\n";
     }
 
     @Override
